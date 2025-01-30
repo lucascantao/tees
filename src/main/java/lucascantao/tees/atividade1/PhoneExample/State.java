@@ -1,4 +1,4 @@
-package lucascantao.tees.atividade1;
+package lucascantao.tees.atividade1.PhoneExample;
 
 public abstract class State {
     protected Phone phone;

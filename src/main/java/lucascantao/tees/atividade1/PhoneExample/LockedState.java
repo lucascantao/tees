@@ -1,20 +1,19 @@
-package lucascantao.tees.atividade1;
+package lucascantao.tees.atividade1.PhoneExample;
 
-public class ReadyState extends State{
-
-    ReadyState(Phone phone) {
+public class LockedState extends State{
+    public LockedState(Phone phone) {
         super(phone);
     }
     
     @Override
     public String onHomeButton() {
-        return phone.home();
+        phone.setState(new ReadyState(phone));
+        return phone.unlock();
     }
-
+    
     @Override
     public String onPowerButton() {
         phone.setState(new OffState(phone));
         return phone.lock();
     }
-    
 }

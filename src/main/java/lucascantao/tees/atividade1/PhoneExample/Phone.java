@@ -1,4 +1,4 @@
-package lucascantao.tees.atividade1;
+package lucascantao.tees.atividade1.PhoneExample;
 
 public class Phone {
     
