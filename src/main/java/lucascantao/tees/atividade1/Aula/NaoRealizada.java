@@ -2,16 +2,15 @@ package lucascantao.tees.atividade1.Aula;
 
 import java.util.Date;
 
-public class Planejada extends State{
+public class NaoRealizada extends State{
 
-    public Planejada(Aula aula) {
-            super(aula);
+    public NaoRealizada(Aula aula) {
+        super(aula);
     }
     
     @Override
     public String onAulaIniciada(Date dataHoraInicioReal) {
-        aula.setState(new EmRealizacao(aula));
-        return aula.iniciada(dataHoraInicioReal);
+        return "Aula não iniciada";
     }
 
     @Override
@@ -21,8 +20,7 @@ public class Planejada extends State{
 
     @Override
     public String onAulaNãoIniciada() {
-        aula.setState(new NaoRealizada(aula));
-        return aula.naoIniciada();
+        return "Aula não iniciada";
     }
     
 }

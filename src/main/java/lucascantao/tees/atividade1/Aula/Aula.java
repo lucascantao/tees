@@ -11,15 +11,27 @@ public class Aula {
     protected Date dataHoraInicioReal;
     protected Date dataHoraFimReal;
     
-    public Aula() {
+    public Aula(Date dataHoraInicioPlanejado, Date dataHoraFimPlanejado) {
+        this.dataHoraInicioPlanejado = dataHoraInicioPlanejado;
+        this.dataHoraFimPlanejado = dataHoraFimPlanejado;
         this.state = new Planejada(this);
     }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
     
-    public String iniciada() {
+    public String iniciada(Date dataHoraInicioReal) {
+        this.dataHoraInicioReal = dataHoraInicioReal;
         return "Aula iniciada";
     }
     
-    public String encerrada() {
+    public String encerrada(Date dataHoraFimReal) {
+        this.dataHoraFimReal = dataHoraFimReal;
         return "Aula encerrada";
     }
     

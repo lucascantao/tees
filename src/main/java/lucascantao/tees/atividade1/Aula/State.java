@@ -1,5 +1,7 @@
 package lucascantao.tees.atividade1.Aula;
 
+import java.util.Date;
+
 public abstract class State {
     
     protected Aula aula;
@@ -8,9 +10,9 @@ public abstract class State {
         this.aula = aula;
     }
     
-    public abstract String onAulaIniciada();
+    public abstract String onAulaIniciada(Date dataHoraInicioReal);
     
-    public abstract String onAulaEncerrada();
+    public abstract String onAulaEncerrada(Date dataHoraFimReal);
     
     public abstract String onAulaNãoIniciada();
     
