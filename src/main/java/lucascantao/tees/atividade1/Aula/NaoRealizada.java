@@ -1,6 +1,6 @@
 package lucascantao.tees.atividade1.Aula;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class NaoRealizada extends State{
 
@@ -9,17 +9,20 @@ public class NaoRealizada extends State{
     }
     
     @Override
-    public String onAulaIniciada(Date dataHoraInicioReal) {
+    public String onAulaIniciada(LocalDateTime dataHoraInicioReal) {
+        System.out.println("\nestado: NaoRealizada -> Iniciada");
         return "Aula não iniciada";
     }
 
     @Override
-    public String onAulaEncerrada(Date dataHoraFimReal) {
+    public String onAulaEncerrada(LocalDateTime dataHoraFimReal) {
+        System.out.println("\nestado: NaoRealizada -> Encerrada");
         return "Aula não iniciada";
     }
 
     @Override
     public String onAulaNãoIniciada() {
+        System.out.println("\nestado: NaoRealizada -> NaoIniciada");
         return "Aula não iniciada";
     }
     

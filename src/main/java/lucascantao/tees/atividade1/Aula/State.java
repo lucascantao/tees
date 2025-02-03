@@ -1,6 +1,6 @@
 package lucascantao.tees.atividade1.Aula;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public abstract class State {
     
@@ -10,9 +10,9 @@ public abstract class State {
         this.aula = aula;
     }
     
-    public abstract String onAulaIniciada(Date dataHoraInicioReal);
+    public abstract String onAulaIniciada(LocalDateTime dataHoraInicioReal);
     
-    public abstract String onAulaEncerrada(Date dataHoraFimReal);
+    public abstract String onAulaEncerrada(LocalDateTime dataHoraFimReal);
     
     public abstract String onAulaNãoIniciada();
     

@@ -1,5 +1,10 @@
 package lucascantao.tees.atividade1;
 
+import java.time.LocalDateTime;
+
+import lucascantao.tees.atividade1.Aula.Aula;
+import lucascantao.tees.atividade1.Aula.EmRealizacao;
+import lucascantao.tees.atividade1.Aula.State;
 import lucascantao.tees.atividade1.Notifier.FacebookDecorator;
 import lucascantao.tees.atividade1.Notifier.INotifier;
 import lucascantao.tees.atividade1.Notifier.Notifier;
@@ -23,30 +28,20 @@ public class App
 {
     public static void main( String[] args )
     {
-        // INotifier notifier = new FacebookDecorator(
-        //     new WhatsAppDecorator(
-        //         new Notifier("Lucas")
-        //     )
-        // );
+        System.out.println( "\n" );
 
-        // notifier.send("Hello wolrd");
-
-        // Coffee coffee = new SimpleCoffee();
-        // System.out.println(coffee.getDescription() + " $" + coffee.getCost());
-
-        // coffee = new MilkDecorator(coffee);
-        // System.out.println(coffee.getDescription() + " $" + coffee.getCost());
-
-        Sorvete sorvete = new Copo();
-        System.out.println(sorvete.getDescricao() + " $" + sorvete.getCusto());
-
-        sorvete = new ChocolateDecorator(sorvete);
-        sorvete = new ChocolateDietDecorator(sorvete);
-        sorvete = new NapolitanoDecorator(sorvete);
+        Aula aula = new Aula(LocalDateTime.of(2025, 02, 15, 13, 0), LocalDateTime.of(2025, 02, 15, 14, 50));
+        aula.getHorarioPlanejado();
         
-        sorvete = new CoberturaChocolateDecorator(sorvete);
+        System.out.println( aula.getState().onAulaIniciada(LocalDateTime.of(2025, 02, 15, 13, 0)) );
+        aula.getHorarioReal();
+        
+        System.out.println( aula.getState().onAulaIniciada(null) );
 
-
-        System.out.println(sorvete.getDescricao() + " $" + sorvete.getCusto());
+        System.out.println( aula.getState().onAulaEncerrada(LocalDateTime.of(2025, 02, 15, 14, 45)) );
+        aula.getHorarioReal();
+    
+        System.out.println( "\n" );
+        
     }
 }

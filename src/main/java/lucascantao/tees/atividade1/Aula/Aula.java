@@ -1,17 +1,17 @@
 package lucascantao.tees.atividade1.Aula;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Aula {
         
     private State state;
     
-    protected Date dataHoraInicioPlanejado;
-    protected Date dataHoraFimPlanejado;
-    protected Date dataHoraInicioReal;
-    protected Date dataHoraFimReal;
+    protected LocalDateTime dataHoraInicioPlanejado;
+    protected LocalDateTime dataHoraFimPlanejado;
+    protected LocalDateTime dataHoraInicioReal;
+    protected LocalDateTime dataHoraFimReal;
     
-    public Aula(Date dataHoraInicioPlanejado, Date dataHoraFimPlanejado) {
+    public Aula(LocalDateTime dataHoraInicioPlanejado, LocalDateTime dataHoraFimPlanejado) {
         this.dataHoraInicioPlanejado = dataHoraInicioPlanejado;
         this.dataHoraFimPlanejado = dataHoraFimPlanejado;
         this.state = new Planejada(this);
@@ -25,18 +25,26 @@ public class Aula {
         this.state = state;
     }
     
-    public String iniciada(Date dataHoraInicioReal) {
+    public String iniciada(LocalDateTime dataHoraInicioReal) {
         this.dataHoraInicioReal = dataHoraInicioReal;
         return "Aula iniciada";
     }
     
-    public String encerrada(Date dataHoraFimReal) {
+    public String encerrada(LocalDateTime dataHoraFimReal) {
         this.dataHoraFimReal = dataHoraFimReal;
         return "Aula encerrada";
     }
     
     public String naoIniciada() {
         return "Aula cancelada";
+    }
+
+    public void getHorarioPlanejado() {
+        System.out.println("Horario Planejado: " + this.dataHoraInicioPlanejado + " - " + this.dataHoraFimPlanejado);
+    }
+
+    public void getHorarioReal() {
+        System.out.println("Horario Real: " + this.dataHoraInicioReal + " - " + this.dataHoraFimReal);
     }
     
 }
